@@ -2,7 +2,7 @@
 
 Learning to code with swift.
 
-If this is used with Xcode: make sure to use a custom working directory:
-`Product -> Scheme -> Edit Scheme`
-On the tab Options you choose your `advent-of-code-2025-swift/advent-of-code-2025-swift` as your working directory.
+Edit the files in `advent-of-code-2025-swift-ui` in the corresponding `Dayxy.swift` file.
+You can then run it in the UI.
 
+[screenshot of the UI](screenshot.png)
