@@ -71,9 +71,7 @@ class Day06 : Day {
             
         }
         operators.reverse()
-        
-        print("\(operators)")
-        
+                
         var problems = Array(
             repeating: Array(
                 repeating: Array<String>(),
@@ -99,9 +97,7 @@ class Day06 : Day {
                 i += op.0 + 1
             }
         }
-        
-        print("\(problems)")
-        
+                
         var counter = 0
         for (i, problem)  in problems.enumerated() {
             switch operators[i] {
@@ -114,10 +110,8 @@ class Day06 : Day {
                         let idx = p.index(p.startIndex, offsetBy: j)
                         val += String(p[idx])
                     }
-                    print("\(val)")
                     res += Int(val.trimmingCharacters(in: .whitespacesAndNewlines))!
                 }
-                print("\(res)")
                 counter += res
             case (_, "*"):
                 var res = 1
@@ -128,11 +122,8 @@ class Day06 : Day {
                         let idx = p.index(p.startIndex, offsetBy: j)
                         val += String(p[idx])
                     }
-                    print("\(val)")
-
                     res *= Int(val.trimmingCharacters(in: .whitespacesAndNewlines))!
                 }
-                print("\(res)")
                 counter += res
             default:
                 break
