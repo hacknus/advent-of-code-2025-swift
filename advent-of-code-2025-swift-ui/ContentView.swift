@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var resultOutput: String = ""
+    @State private var newSolution: Bool = true
     @State private var isShowingSettings = false
     @State private var isRunning = false
     @State private var timeElapsed: TimeInterval = 0
@@ -106,9 +107,14 @@ struct ContentView: View {
                 .buttonStyle(PlainButtonStyle())
                 .help("Copy to Clipboard")
                 .disabled(resultOutput.isEmpty)
+                
+                Text("Not a new Solution!")
+                    .font(.body)
+                    .foregroundColor(.red)
+                    .opacity(newSolution ? 0 : 1)
             }
             .frame(maxWidth: .infinity)
-            .offset(x: 16)
+            .offset(x: 16 + 64)
             
             Button(action: {
                 isShowingSettings = true
@@ -187,6 +193,18 @@ struct ContentView: View {
                 default:
                     print("invalid puzzle type")
                 }
+                
+                if let oldSolution = NSPasteboard.general.string(forType: .string) {
+                    if oldSolution == result {
+                        self.newSolution = false
+                    } else {
+                        self.newSolution = true
+                    }
+                }
+                
+                let pb = NSPasteboard.general
+                pb.clearContents()
+                pb.setString(result, forType: .string)
 
                 workingDir.stopAccessingSecurityScopedResource()
 
