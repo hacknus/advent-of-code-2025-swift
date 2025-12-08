@@ -55,7 +55,7 @@ class Day08 : Day {
         var circuits : [Set<Int>] = []
         
         for k in 0..<n_to_connect {
-            let (d, (i, j)) = distances[k]
+            let (_, (i, j)) = distances[k]
             
             var solo = true
             
@@ -115,7 +115,6 @@ class Day08 : Day {
         let input = readInput(filename: filename)
         let lines = input.split(separator: "\n")
         
-        let n_to_connect = 1000;
         var boxes: [Box] = []
         
         for line in lines {
@@ -141,7 +140,7 @@ class Day08 : Day {
         var k = 0
         
         while circuits.count != 1 {
-            let (d, (i, j)) = distances[k]
+            let (_, (i, j)) = distances[k]
             
             var solo = true
             
